@@ -23,7 +23,6 @@ The app focuses on simplicity while giving you **smart insights** into your mone
 
 - **Flutter** – Cross-platform UI framework  
 - **Dart** – Core programming language  
-- **Firebase (planned)** – For authentication and cloud sync  
 - **JSON** – Backup and export format  
 
 ---
