@@ -1,61 +1,73 @@
 import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
-        child: BottomNavigationBar(
-          backgroundColor: Colors.white,
-          showSelectedLabels: false,
-          selectedItemColor: Colors.blue,
-          showUnselectedLabels: false,
-          items: [
-            BottomNavigationBarItem(
-              icon: HugeIcon(icon: HugeIcons.strokeRoundedHome10, size: 24),
-              label: "Home",
-              backgroundColor: Colors.grey,
+      body: Center(
+        child: Text("Page $_selectedIndex", style: TextStyle(fontSize: 24)),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 6.0,
+        color: Colors.grey[900],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: HugeIcon(
+                icon: HugeIcons.strokeRoundedHome10,
+                size: 24,
+                color: _selectedIndex == 0 ? Colors.blue : Colors.white,
+              ),
+              onPressed: () => _onItemTapped(0),
             ),
-            BottomNavigationBarItem(
+            IconButton(
               icon: HugeIcon(
                 icon: HugeIcons.strokeRoundedTransaction,
                 size: 24,
+                color: _selectedIndex == 1 ? Colors.blue : Colors.white,
               ),
-              label: "Activity",
-              backgroundColor: Colors.grey,
+              onPressed: () => _onItemTapped(1),
             ),
-            BottomNavigationBarItem(
-              icon: SizedBox.shrink(),
-              label: "",
-              backgroundColor: Colors.transparent,
-            ),
-            BottomNavigationBarItem(
+            const SizedBox(width: 48), // FAB gap
+            IconButton(
               icon: HugeIcon(
                 icon: HugeIcons.strokeRoundedMoneySavingJar,
                 size: 24,
+                color: _selectedIndex == 2 ? Colors.blue : Colors.white,
               ),
-              label: "Savings",
-              backgroundColor: Colors.grey,
+              onPressed: () => _onItemTapped(2),
             ),
-            BottomNavigationBarItem(
+            IconButton(
               icon: HugeIcon(
                 icon: HugeIcons.strokeRoundedChartAverage,
                 size: 24,
+                color: _selectedIndex == 3 ? Colors.blue : Colors.white,
               ),
-              label: "Analytics",
-              backgroundColor: Colors.grey,
+              onPressed: () => _onItemTapped(3),
             ),
           ],
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
         onPressed: () {},
