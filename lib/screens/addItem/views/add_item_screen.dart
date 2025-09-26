@@ -7,8 +7,14 @@ class AddItemScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // normal app bar, or remove completely
-        title: const Text("Add Item"),
+        title: const Text(
+          "Add Item",
+          style: TextStyle(
+            fontFamily: "Montserrat",
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+          ),
+        ),
       ),
       body: const Center(child: Text("Add Item Page")),
     );
