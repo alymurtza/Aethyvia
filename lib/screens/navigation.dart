@@ -52,7 +52,7 @@ class _NavigationBarState extends State<NavigationBarScreen> {
             ),
             IconButton(
               icon: HugeIcon(
-                icon: HugeIcons.strokeRoundedTransaction,
+                icon: HugeIcons.strokeRoundedTransactionHistory,
                 size: 24,
                 color: _selectedIndex == 1 ? Colors.blue : Colors.white,
               ),
@@ -61,7 +61,7 @@ class _NavigationBarState extends State<NavigationBarScreen> {
             const SizedBox(width: 48), // Space for FAB
             IconButton(
               icon: HugeIcon(
-                icon: HugeIcons.strokeRoundedMoneySavingJar,
+                icon: HugeIcons.strokeRoundedPiggyBank,
                 size: 24,
                 color: _selectedIndex == 3 ? Colors.blue : Colors.white,
               ),
